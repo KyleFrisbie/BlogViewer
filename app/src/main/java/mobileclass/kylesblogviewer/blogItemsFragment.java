@@ -21,6 +21,10 @@ import java.util.ArrayList;
  */
 public class blogItemsFragment extends ListFragment {
 
+//    HttpGet blogResponse = new HttpGet("http://www.kylefrisbie.com/api/blogposts");
+//
+//    ArrayList<String> numbers_text = blogResponse.getTitleAry();
+
     String[] numbers_text = new String[] { "one", "two", "three", "four",
             "five", "six", "seven", "eight", "nine", "ten", "eleven",
             "twelve", "thirteen", "fourteen", "fifteen" };

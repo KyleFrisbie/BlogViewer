@@ -1,4 +1,5 @@
 package mobileclass.kylesblogviewer;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -12,12 +13,25 @@ import java.util.ArrayList;
  * Created by Kyle on 9/2/2015.
  */
 public class HttpGet {
-    public static JSONObject getContenxtWeb(String urlS) {
-        String pagina = "", devuelve = "";
-        JSONArray jsonArray;
-        ArrayList<JSONObject> joAry= new ArrayList<>();
-        ArrayList<String> titleAry = new ArrayList<>();
 
+    private ArrayList<String> titleAry;
+    private JSONArray jsonArray;
+
+
+    HttpGet(String url) {
+        getContextWeb(url);
+    }
+
+    protected ArrayList<String> getTitleAry() {
+        return titleAry;
+    }
+
+    protected JSONArray getJsonArray() {
+        return jsonArray;
+    }
+
+    protected JSONObject getContextWeb(String urlS) {
+        String pagina = "", devuelve = "";
 
         URL url;
         try {
@@ -43,7 +57,9 @@ public class HttpGet {
             }
             conexion.disconnect();
 
-            jsonArray  = new JSONArray(devuelve); // json
+            jsonArray = new JSONArray(devuelve); // json
+            titleAry = new ArrayList<>();
+
             for (int i = 0; i < jsonArray.length(); i++) {
                 titleAry.add(i, jsonArray.getJSONObject(i).getString("title"));
             }
@@ -56,10 +72,6 @@ public class HttpGet {
         } catch (Exception ex) {
             return null;
         }
-    }
-
-    public static void main(String[] args) {
-        getContenxtWeb("http://www.kylefrisbie.com/api/blogposts");
     }
 }
 
