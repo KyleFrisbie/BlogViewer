@@ -1,4 +1,4 @@
-package com.kylefrisbie.blogviewer.app;
+package mobileclass.kylesblogviewer;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
